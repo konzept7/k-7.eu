@@ -1,0 +1,110 @@
+{
+  "article": {
+    "back": "Zurück zu allen Einträgen",
+    "publishedAt": "Veröffentlicht am:",
+    "updatedAt": "Letzte Aktualisierung:"
+  },
+  "by": "von",
+  "home": {
+    "claim": "K7 - Weil wir Technik ❤️",
+    "description": "K7-Konzept Karlsruhe ist ein junges Unternehmen, das sich auf Sondermaschinenbau sowie die Entwicklung von Software und Hardware für industrielle Anwendungen spezialisiert hat.",
+    "contactUs": "Kontakt aufnehmen"
+  },
+  "services": {
+    "services": "Leistungen",
+    "ourServices": "Unsere Leistungen",
+    "text": "Wir bieten Ihnen ein breites Spektrum an Dienstleistungen an. Von der Konstruktion über die Softwareentwicklung bis hin zur Planung und Simulation."
+  },
+  "news": "Neuigkeiten",
+  "jobs": {
+    "noJobsAvailable": "Aktuell haben wir keine offenen Stellenausschreibungen.",
+    "career": "Karriere"
+  },
+  "team": {
+    "missing": "Sorry, bei der Vorstellung unseres Teams sind wir noch nicht ganz so weit. Wir arbeiten aber mit Hochdruck daran. Schau doch in den nächsten Tagen nochmal vorbei!",
+    "team": "Team"
+  },
+  "aboutUs": "Über uns",
+  "imprint": "Impressum",
+  "community": "Community",
+  "pageNotFound": "Seite nicht gefunden",
+  "pageNotFoundDescription": "Diese Seite existiert nicht. Bitte überprüfe die URL oder gehe zurück zur Startseite.",
+  "errorLoading": "Fehler beim Laden",
+  "errorLoadingArticle": "Beim Laden des Artikels ist ein Fehler aufgetreten. Bitte versuche es später nochmal.",
+  "didYouKnow": "Wussten Sie schon?",
+  "wwa": {
+    "ourServices": "Unsere Leistungen",
+    "subTitle": "Was uns ausmacht",
+    "title": "Nicht Ihr klassisches Ingenieurbüro",
+    "text": "Wir sind ein Team aus Ingenieur:innen, die sich auf Sondermaschinenbau sowie die Entwicklung von Software und Hardware für industrielle Anlagen spezialisiert haben. Als Entwicklungsunternehmen bieten wir nicht nur Konstruktionsdienstleistungen, sondern entwickeln auch die dazugehörige Software.",
+    "customerObsessed": "Kundenorientiert",
+    "customerText": "Wir fangen bei Ihren Anforderungen an und arbeiten von dort rückwärts. Wir sind aufmerksame Zuhörer, und geben ehrliches Feedback. Wir gehen den Dingen auf den Grund.",
+    "software-driven": "Softwaregetrieben",
+    "softwareText": "Wir arbeiten permanent daran effizienter zu werden und automatisieren unsere Prozesse. Damit wir uns auf das Wesentliche konzentrieren können.",
+    "dataSecurity": "Datensicherheit",
+    "dataSecurityText": "Im Dschungel von DSGVO und Co. kennen wir uns bestens aus. Wir arbeiten in jedem Projekt nach den höchsten Datenschutzstandards.",
+    "interdisciplinary": "Fachübergreifend",
+    "interdisciplinaryText": "Unsere Mitarbeiter:innen kennen sich nicht nur in ihrem Fachgebiet aus, sondern haben alle schon in anderen Abteilungen gearbeitet."
+  },
+  "contact": {
+    "nameNecessary": "Name ist erforderlich",
+    "betterWriteSomething": "Sie müssen schon was schreiben",
+    "whatIsItAbout": "Worum geht\\'s denn?",
+    "invalidEmail": "Ungültige Email",
+    "sendUsAMessage": "Schreiben Sie uns eine Nachricht",
+    "information": "Informationen",
+    "thanksForMessage": "Danke für Ihre Nachricht",
+    "replySoon": "Wir werden uns schnellstmöglich bei Ihnen melden!",
+    "yourName": "Ihr Name",
+    "yourEmail": "Ihre Email",
+    "subject": "Thema",
+    "yourMessage": "Ihre Nachricht",
+    "pleaseBeExact": "Bitte beschreiben Sie Ihr Anliegen so genau wie möglich.",
+    "submit": "Abschicken",
+    "email": "Email",
+    "phone": "Telefon",
+    "adress": "Adresse",
+    "hours": "Arbeitszeiten"
+  },
+  "header": {
+    "changeLanguage": "Sprache festlegen"
+  },
+  "projectStatus": {
+    "In Anfrage": "In Anfrage",
+    "Neu": "Neu",
+    "Konzept": "Konzept",
+    "In Bearbeitung": "In Bearbeitung",
+    "Geliefert": "Geliefert",
+    "Abgeschlossen": "Abgeschlossen"
+  },
+  "projects": {
+    "projects": "Projekte",
+    "selection": "Hier finden Sie eine Auswahl unserer Projekte. Leider können wir nicht alle Projekte veröffentlichen. Wenn Sie mehr über unsere Projekte erfahren möchten, kontaktieren Sie uns gerne.",
+    "errorLoadingTitle": "Fehler beim Laden",
+    "errorLoadingMessage": "Beim Laden der Projekte ist ein Fehler aufgetreten. Bitte versuche es später nochmal."
+  },
+  "ourClients": "Unsere Kunden",
+  "department": {
+    "loading": "Abteilung wird geladen...",
+    "allServices": "Alle Dienstleistungen",
+    "projectSelection": "Hier handelt es sich nur um eine Auswahl von Projekten - leider können wir nicht alle Projekte veröffentlichen.",
+    "lookingFor": "ie suchen nach einem Spezialisten für eine bestimmte Technologie oder Fähigkeit? Hier finden Sie eine Auswahl der Technologien und Fähigkeiten, die wir in unserem Team haben.",
+    "skills": "Technologien und Fähigkeiten",
+    "errorLoadingTitle": "Fehler beim Laden der Abteilung",
+    "errorLoadingMessage": "Beim Laden der Abteilung ist ein Fehler aufgetreten. Bitte versuche es später nochmal."
+  },
+  "imprintPage": {
+    "responsible": "Inhaltlich verantwortlich",
+    "disclaimerTitle": "Haftungsausschluss",
+    "changesPossible": "Die K7-Konzept Karlsruhe GmbH behält sich das Recht vor, ohne vorherige Ankündigung Änderungen oder Ergänzungen der bereitgestellten Informationen vorzunehmen oder diese zu entfernen.",
+    "noClaims": "Auf keinen Fall haftet die K7-Konzept Karlsruhe GmbH für Schäden, die durch fehlende Nutzungsmöglichkeiten oder Datenverluste im Zusammenhang mit der Nutzung von Dokumenten oder Informationen bzw. der Erbringung von Dienstleistungen entstehen, die auf dieser Website zugänglich sind."
+  },
+  "disclaimer": "Die K7-Konzept Karlsruhe GmbH übernimmt keine Garantie dafür, dass die auf dieser Website bereitgestellten Informationen vollständig, richtig und in jedem Fall aktuell sind. Insbesondere übernimmt die K7-Konzept Karlsruhe GmbH keine Haftung für Inhalte, die ausdrücklich oder konkludent als fremde Inhalte gekennzeichnet sind. Die K7-Konzept Karlsruhe GmbH ist nicht dafür verantwortlich, dass solche Inhalte vollständig, richtig, aktuell und rechtmäßig sind und nicht in unzulässiger Weise in Rechtsgüter Dritter eingreifen. Dies gilt auch für Inhalte von Webseiten, auf die durch einen Link verwiesen wird.",
+  "copy": "In die Zwischenablage",
+  "copied": "Kopiert",
+  "newsPage": {
+    "soon": "Klar haben wir schon Neuigkeiten, aber weil wir so beschäftigt sind, haben wir noch keine Zeit gefunden, diese hier zu veröffentlichen. Schau in den nächsten Tagen doch nochmal vorbei, wir arbeiten daran!"
+  },
+  "notReady": "Noch nicht verfügbar",
+  "notReadySorry": "Sorry, aber diese Seite ist noch nicht fertig. Schau in den nächsten Tagen doch nochmal vorbei, wir arbeiten daran!"
+}

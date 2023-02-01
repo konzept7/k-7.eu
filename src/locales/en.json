@@ -1,0 +1,110 @@
+{
+  "aboutUs": "About us",
+  "article": {
+    "back": "Back to all entries",
+    "publishedAt": "Published on:",
+    "updatedAt": "Last update:"
+  },
+  "by": "from",
+  "community": "Community",
+  "contact": {
+    "betterWriteSomething": "You should at least write something",
+    "information": "Information",
+    "invalidEmail": "Invalid E-mail",
+    "nameNecessary": "Name is required",
+    "pleaseBeExact": "Please describe your request as precisely as possible.",
+    "replySoon": "We will contact you as soon as possible!",
+    "sendUsAMessage": "Send us a message",
+    "subject": "Theme",
+    "submit": "Send",
+    "thanksForMessage": "Thank you for your message",
+    "whatIsItAbout": "What is it about?",
+    "yourEmail": "Your email",
+    "yourMessage": "Your message",
+    "yourName": "Your name",
+    "adress": "address",
+    "email": "E-mail",
+    "hours": "working hours",
+    "phone": "phone"
+  },
+  "didYouKnow": "Did you know?",
+  "errorLoading": "Error at loading",
+  "errorLoadingArticle": "There was an error loading the article. \nPlease try again later.",
+  "header": {
+    "changeLanguage": "Change language"
+  },
+  "home": {
+    "claim": "K7 - Enginnering made in heaven",
+    "contactUs": "Get in touch",
+    "description": "K7-concept Karlsruhe is a young company specializing in the construction of special machines and the development of software and hardware for industrial applications."
+  },
+  "imprint": "Imprint",
+  "jobs": {
+    "career": "Career",
+    "noJobsAvailable": "We currently have no vacancies."
+  },
+  "news": "News",
+  "pageNotFound": "Page not found",
+  "pageNotFoundDescription": "This page does not exist. \nPlease check the URL or go back to the home page.",
+  "projectStatus": {
+    "Abgeschlossen": "Completed",
+    "Geliefert": "Delivered",
+    "In Anfrage": "Inquired",
+    "In Bearbeitung": "In progress",
+    "Konzept": "Concept",
+    "Neu": "New"
+  },
+  "projects": {
+    "projects": "Projects",
+    "selection": "Here is a selection of our most recent projects. \nUnfortunately we cannot publish all projects. \nIf you would like to learn more about our projects, please contact us.",
+    "errorLoadingMessage": "An error occurred while loading the projects. \nPlease try again later.",
+    "errorLoadingTitle": "error at loading"
+  },
+  "services": {
+    "ourServices": "Our services",
+    "services": "Services",
+    "text": "We offer you a wide range of services. \nFrom design and software development to planning and simulation."
+  },
+  "team": {
+    "missing": "Sorry, we are not quite there yet when it comes to introducing our team. \nBut we are working on it. \nCheck back in the next few days!",
+    "team": "team"
+  },
+  "wwa": {
+    "customerObsessed": "Customer obsessed",
+    "customerText": "We start with your requirements and work backwards from there. \nWe are careful listeners and give honest feedback. \nWe get to the bottom of things.",
+    "dataSecurity": "Data security",
+    "dataSecurityText": "We are very familiar with the jungle of GDPR and Co. \nWe work in every project according to the highest data protection standards.",
+    "interdisciplinary": "Interdisciplinary",
+    "interdisciplinaryText": "Our employees not only know their area of ​​expertise, but have all worked in other departments.",
+    "ourServices": "Our services",
+    "software-driven": "software driven",
+    "softwareText": "We are constantly working to become more efficient and automate our processes. \nSo that we can concentrate on the essentials.",
+    "subTitle": "Who we are",
+    "text": "We are a team of engineers specializing in special machine construction and the development of software and hardware for industrial plants. \nAs a development company, we not only offer design services, but also develop the associated software.",
+    "title": "Not your classic engineering office"
+  },
+  "ourClients": "Our clients",
+  "copied": "copied",
+  "copy": "To the clipboard",
+  "department": {
+    "allServices": "All services",
+    "errorLoadingMessage": "There was an error loading the department. \nPlease try again later.",
+    "errorLoadingTitle": "Error loading department",
+    "loading": "Loading department...",
+    "lookingFor": "Are you looking for a specialist in a specific technology or skill? \nHere is a selection of the technologies and skills we have in our team.",
+    "projectSelection": "This is just a selection of projects - unfortunately we cannot publish all projects.",
+    "skills": "technologies and skills"
+  },
+  "disclaimer": "K7-Concept Karlsruhe GmbH does not guarantee that the information provided on this website is complete, correct and in any case up-to-date. \nIn particular, K7-Concept Karlsruhe GmbH assumes no liability for content that is expressly or implicitly marked as third-party content. \nK7-konzept Karlsruhe GmbH is not responsible for ensuring that such content is complete, correct, up-to-date and legal and does not inadmissibly interfere with the legal interests of third parties. \nThis also applies to the content of websites referred to by a link.",
+  "imprintPage": {
+    "changesPossible": "K7-Concept Karlsruhe GmbH reserves the right to make changes or additions to the information provided or to remove it without prior notice.",
+    "disclaimerTitle": "Disclaimer",
+    "noClaims": "Under no circumstances is K7-Concept Karlsruhe GmbH liable for damage caused by a lack of usage options or data loss in connection with the use of documents or information or the provision of services that are accessible on this website.",
+    "responsible": "Content responsibility"
+  },
+  "newsPage": {
+    "soon": "Of course we already have news, but because we are so busy we haven't found time to publish them here. \nCheck back in the next few days, we're working on it!"
+  },
+  "notReady": "Not yet available",
+  "notReadySorry": "Sorry, but this page is not ready yet. \nCheck back in the next few days, we're working on it!"
+}
