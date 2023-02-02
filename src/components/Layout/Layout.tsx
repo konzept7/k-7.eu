@@ -14,6 +14,7 @@ import { useTranslation } from 'react-i18next';
 import Department from '../../pages/Department';
 import ServiceCollection from '../../pages/ServiceCollection';
 import ArticleCollection from '../../pages/ArticleCollection';
+import Team from '../../pages/Team';
 
 
 
@@ -38,7 +39,7 @@ export default function Layout() {
               <Route path="/services" element={<ServiceCollection />} />
               <Route path="/services/:name" element={<Department />} />
               <Route path="/news" element={<ArticleCollection type="blogs" />} />
-              <Route path="/team" element={<NotReady text={t('team.missing')} />} />
+              <Route path="/team" element={<Team />} />
               <Route path="/imprint" element={<Imprint />} />
               <Route path="*" element={<Error404 />} />
             </Routes>
