@@ -90,7 +90,8 @@ export default function Article() {
         <Group spacing={0} w="100%" noWrap={mediumDisplay}>
           <Stack ta="left" w="100%" spacing={5}>
             <Group noWrap spacing="xs">
-              <Avatar size={20} src={entry.author?.data.attributes.thumbnail} />
+              <Avatar size={30} radius="xl"
+                src={import.meta.env.VITE_CMS + entry.author?.data.attributes.thumbnail?.data.attributes?.formats?.thumbnail.url} />
               <Text size="md">{entry.author?.data.attributes.name}</Text>
               <Text size="md" color="dimmed">
                 •
