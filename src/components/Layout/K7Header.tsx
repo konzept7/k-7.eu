@@ -98,7 +98,7 @@ export default function HeaderMiddle({ links }: HeaderMiddleProps) {
 
   useEffect(() => {
     getDepartments([], i18n.resolvedLanguage).then((res) => {
-      setDepartments(res);
+      setDepartments(res.filter(d => !d.attributes.hidden));
     })
   }, [i18n.language])
 

@@ -174,6 +174,7 @@ export interface DepartmentResponseItem {
     name: string;
     catchphrase: string;
     cover: MediaItem;
+    hidden: boolean;
     icon: MediaItem;
     body?: (
       ContentFragmentsCodeblock

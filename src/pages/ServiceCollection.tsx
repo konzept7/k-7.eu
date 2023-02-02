@@ -77,7 +77,7 @@ export default function ServiceCollection() {
         <Space h="xl" />
         <SimpleGrid cols={3} px={10} spacing={50} breakpoints={[{ maxWidth: theme.breakpoints.md, cols: 2, spacing: 30 },
         { maxWidth: theme.breakpoints.sm, cols: 1, spacing: 15 }]}>
-          {departments.map((item) => (
+          {departments.filter(d => !d.attributes.hidden).map((item) => (
             <Stack key={item.id} spacing={theme.spacing.xs} onClick={() => { navigate("/services/" + item.attributes.route) }} h="auto" className={cx(classes.serviceCard,
               // @ts-ignore
               classes[item.attributes.color])}>
