@@ -318,7 +318,7 @@ export const getDepartment = async (id: string) => {
 }
 
 export const getDepartmentByRoute = async (route: string, locale: string = "de") => {
-  const queryUrl = `${import.meta.env.VITE_CMS}/api/departments?locale=${locale}&populate[0]=cover,skills,icon&populate[1]=skills.technologies,skills.icon,blogs,projects.author,projects.cover,projects.departments,body&filters[route][$eqi]=${route}`
+  const queryUrl = `${import.meta.env.VITE_CMS}/api/departments?locale=${locale}&populate[0]=cover,skills,icon&populate[1]=skills.technologies,skills.icon,blogs,projects.author,projects.cover,projects.departments,body&populate[2]=projects.author.thumbnail&filters[route][$eqi]=${route}`
   const request = await fetch(queryUrl, {
     method: 'GET', headers
   })

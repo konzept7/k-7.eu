@@ -40,7 +40,7 @@ export default function ArticleCard({ data, type }: CollectionEntryProps) {
 
   return (
     <Card withBorder radius="md" p={0} className={classes.card} onClick={() => {
-      navigate(type === "projects" ? `/projects/${data.id}` : `/blog/${data.id}`)
+      navigate(type === "projects" ? `/projects/${data.id}` : `/news/${data.id}`)
     }}>
       <Group noWrap spacing={0}>
         <Image src={import.meta.env.VITE_CMS + cover} height={140} width={140} />

@@ -15,7 +15,7 @@ export default function ParagraphFragment(fragment: ContentFragmentsParagraph) {
 
   if (fragment.highlight) {
     return (
-      <K7Page background="light">
+      <K7Page background="light" key={fragment.id}>
         <Title order={1} ta="center" color="dark" >{fragment.title}</Title>
         <ReactMarkdown className={classes.highlightText}>
           {fragment.content!}
@@ -24,8 +24,8 @@ export default function ParagraphFragment(fragment: ContentFragmentsParagraph) {
     )
   }
 
-  return <span key={fragment.id}>
+  return <K7Page py={20} key={fragment.id}>
     <Title order={4}>{fragment.title}</Title>
     <ReactMarkdown>{fragment.content!}</ReactMarkdown>
-  </span>
+  </K7Page>
 }
