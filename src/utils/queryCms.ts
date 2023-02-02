@@ -60,14 +60,25 @@ export interface AuthorResponseItem {
     attributes: {
       name: string
       position: string
-      thumbnail?: any
+      thumbnail?: MediaItem
     }
   }
 }
 
+export interface MediaItemFormat {
+  name: string
+  hash: string
+  ext: string
+  mime: string
+  path: string
+  width: number
+  height: number
+  size: number
+  url: string
+}
+type MediaItemFormats = { thumbnail: MediaItemFormat, small: MediaItemFormat, medium: MediaItemFormat, large: MediaItemFormat }
 export interface MediaItem {
   data: {
-
     id?: number;
     attributes?: {
       name?: string;
@@ -75,13 +86,13 @@ export interface MediaItem {
       caption?: string;
       width?: number;
       height?: number;
-      formats?: any;
       hash?: string;
       ext?: string;
       mime?: string;
       size?: number;
       url?: string;
       previewUrl?: string;
+      formats?: MediaItemFormats
     };
   }
 }
@@ -243,7 +254,10 @@ type PopulateArticleWith = "departments" | "content" | "author" | "cover"
 export type CollectionQueryType = "projects" | "blogs"
 export const queryArticles = async (queryType: CollectionQueryType, populate: Array<PopulateArticleWith> = ["author", "content", "cover", "departments"], locale: string = "de", department: string | undefined = undefined) => {
 
-  let queryUrl = `${import.meta.env.VITE_CMS}/api/${queryType}?locale=${locale}&populate=${populate.join("%2C")}`
+  let queryUrl = `${import.meta.env.VITE_CMS}/api/${queryType}?locale=${locale}&populate[0]=${populate.join("%2C")}`
+  if (populate.includes("author")) {
+    queryUrl += "&populate[1]=author.thumbnail"
+  }
   if (department) {
     const departmentReq = await fetch(`${import.meta.env.VITE_CMS}/api/departments?locale=${locale}&filters[name][$eqi]=${department}?locale=${locale}`, {
       method: 'GET', headers
@@ -265,7 +279,7 @@ export const queryArticles = async (queryType: CollectionQueryType, populate: Ar
 }
 
 export const getArticleEntry = async (queryType: CollectionQueryType, id: string, locale: string = "de") => {
-  const queryUrl = `${import.meta.env.VITE_CMS}/api/${queryType}/${id}?locale=${locale}&populate[0]=author,cover,department,content&populate[1]=content.image&populate[2]=content.image.image?locale=${locale}`
+  const queryUrl = `${import.meta.env.VITE_CMS}/api/${queryType}/${id}?locale=${locale}&populate[0]=author,cover,department,content&populate[1]=content.image,author.thumbnail&populate[2]=content.image.image?locale=${locale}`
   const request = await fetch(queryUrl, {
     method: 'GET',
     headers
