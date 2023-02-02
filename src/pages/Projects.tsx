@@ -13,7 +13,7 @@ export default function Projects() {
   const { t, i18n } = useTranslation()
 
   useEffect(() => {
-    queryArticles("projects", ["cover", "author", "departments"], i18n.language).then((response) => {
+    queryArticles("projects", ["cover", "author", "departments"], i18n.resolvedLanguage).then((response) => {
       const p = response.data
       setProjects(p)
     }

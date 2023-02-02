@@ -52,7 +52,7 @@ export default function Department() {
   const { classes, theme } = useStyles();
 
   useEffect(() => {
-    getDepartmentByRoute(name ?? 'design', i18n.language).then(d => {
+    getDepartmentByRoute(name ?? 'design', i18n.resolvedLanguage).then(d => {
       setDepartment(d)
     }
     ).catch((error: any) => {

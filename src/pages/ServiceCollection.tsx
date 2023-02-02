@@ -62,7 +62,7 @@ export default function ServiceCollection() {
   const [departments, setDepartments] = useState<DepartmentResponseItem[]>([]);
 
   useEffect(() => {
-    getDepartments(["icon"], i18n.language).then((res) => {
+    getDepartments(["icon"], i18n.resolvedLanguage).then((res) => {
       setDepartments(res);
     })
   }, [i18n.language])

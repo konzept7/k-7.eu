@@ -42,7 +42,7 @@ export default function Article() {
   const mediumDisplay = useMediaQuery('(min-width: 768px)');
 
   useEffect(() => {
-    getArticleEntry(type, id!, i18n.language).then(e => {
+    getArticleEntry(type, id!, i18n.resolvedLanguage).then(e => {
       setEntry(e)
     }).catch((error: any) => {
       console.error(error)
