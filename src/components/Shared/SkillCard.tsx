@@ -1,6 +1,6 @@
-import { Badge, Image, Grid, Group, Indicator, Rating, Stack, Text, Title, ThemeIcon, createStyles } from "@mantine/core";
+import { Badge, Grid, Group, Rating, Stack, Text, Title, createStyles } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
-import { IconDatabase, IconStar, IconTableImport } from "@tabler/icons";
+import { IconStar } from "@tabler/icons";
 import { Skill, Technology } from "../../utils/queryCms";
 
 const parseLevel = (level: "Beginner" | "Intermediate" | "Advanced" | "Expert" | undefined) => {
