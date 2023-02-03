@@ -36,14 +36,15 @@ export default function ArticleCard({ data, type }: CollectionEntryProps) {
   const tags = item.tags?.split(',').map((tag) => tag.trim())
   const navigate = useNavigate()
 
-  const cover = item.cover?.data.attributes.formats?.small.url ?? item.cover?.data.attributes?.url
+  const cover = item.cover?.data?.attributes?.formats?.small.url ?? item.cover?.data.attributes?.url
 
   return (
     <Card withBorder radius="md" p={0} className={classes.card} onClick={() => {
       navigate(type === "projects" ? `/projects/${data.id}` : `/news/${data.id}`)
     }}>
       <Group noWrap spacing={0}>
-        <Image src={import.meta.env.VITE_CMS + cover} height={140} width={140} />
+        <Image src={import.meta.env.VITE_CMS + cover} alt={item?.cover?.data?.attributes?.alternativeText}
+          height={140} width={140} />
         <div className={classes.body}>
           <Group position="apart">
             <Stack spacing={0} justify="flex-start">

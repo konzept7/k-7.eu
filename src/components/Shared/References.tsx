@@ -84,7 +84,7 @@ export default function References() {
               className={cx(classes.reference, { [classes.intersecting]: containerEntry?.isIntersecting })}>
               <Center h="100%">
                 <Stack>
-                  <Image color="darkgray" src={c.logo} alt={c.name} className={classes.refImage} />
+                  <Image color="darkgray" src={c.logo} alt={'Logo ' + c.name} className={classes.refImage} />
                 </Stack></Center>
 
             </Box>

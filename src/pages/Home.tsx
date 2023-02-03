@@ -6,6 +6,7 @@ import WhoWeAre from "../components/Shared/WhoWeAre";
 import ServiceCollection from "./ServiceCollection";
 import { useScrollIntoView } from "@mantine/hooks";
 import { useTranslation } from "react-i18next";
+import { companyLd } from "../utils/seo";
 
 const useStyles = createStyles((theme) => ({
   title: {
@@ -70,10 +71,11 @@ export default function Home() {
   const { t } = useTranslation();
 
 
-
+  const jsonLd = JSON.stringify(companyLd)
 
   return (
     <Stack w="100%">
+      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: jsonLd }} />
       <Center style={{ minHeight: '70vh' }}>
         <Stack align="center" justify="center" spacing={30}>
           <Title ta="center" className={classes.title}>{t('home.claim')}</Title>

@@ -1,5 +1,5 @@
 import { Center, Group, Loader, Stack, Title, Image, Text, createStyles, Badge, Avatar, Container, Space } from "@mantine/core";
-import { useMediaQuery } from "@mantine/hooks";
+import { useDocumentTitle, useMediaQuery } from "@mantine/hooks";
 import { showNotification } from "@mantine/notifications";
 import { IconArrowLeft } from "@tabler/icons";
 import { useEffect, useState } from "react";
@@ -8,6 +8,7 @@ import { ListArticleResponseItem, colorForStatus, getArticleEntry, ContentFragme
 import K7Page from "../Layout/K7Page";
 import { useTranslation } from "react-i18next"
 import Fragment from "../Fragments/Fragment";
+import { createArticleLd, companyLd, createBreadcrumbLd } from "../../utils/seo";
 const useStyles = createStyles((theme) => ({
   card: {
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
@@ -53,9 +54,13 @@ export default function Article() {
   const { id } = useParams()
   const { t, i18n } = useTranslation();
   const mediumDisplay = useMediaQuery('(min-width: 768px)');
+  const [title, setTitle] = useState('K7-Konzept Karlsruhe GmbH');
+  useDocumentTitle(title);
+
 
   useEffect(() => {
     getArticleEntry(type, id!, i18n.resolvedLanguage).then(e => {
+      setTitle("K7: " + e.title)
       setEntry(e)
     }).catch((error: any) => {
       console.error(error)
@@ -82,11 +87,24 @@ export default function Article() {
     </K7Page>
   )
 
-  const cover = entry?.cover?.data.attributes.formats?.small.url ?? entry?.cover?.data.attributes?.url
+  const cover = entry?.cover?.data?.attributes?.formats?.small.url ?? entry?.cover?.data.attributes?.url
   const tags = entry?.tags?.split(",").map(t => t.trim())
 
+  const articleLd = createArticleLd(type, id!, entry)
+  const breadCrumbsLd = createBreadcrumbLd(type, entry.title, id!)
+
+
+
   return (
-    <>
+    <article>
+      <meta name="description" content={entry.description} />
+      <meta name="keywords" content={entry.tags} />
+      <meta property="og:type" content="website" />
+      <meta name="og:description" content={entry.description} />
+      <meta property="og:title" content={"K7: " + entry.title} />
+      <meta property="og:url" content={window.location.href} />
+      <meta property="og:site_name" content={"K7 " + entry.title} />
+      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify([articleLd, breadCrumbsLd]) }} />
       <K7Page background={"dark"} py={0}>
         <Group position="left" my={30}>
           <IconArrowLeft />
@@ -103,42 +121,47 @@ export default function Article() {
           {entry.status && <Badge variant="dot" color={colorForStatus(entry.status!)}>{entry.status!}</Badge>}
         </Group>
         <K7Page background={"dark"} py={0}>
-          <Group spacing={0} w="100%" noWrap={mediumDisplay}>
-            <Stack ta="left" w="100%" spacing={5}>
-              <Group noWrap spacing="xs">
-                <Avatar size={30} radius="xl"
-                  src={import.meta.env.VITE_CMS + entry.author?.data.attributes.thumbnail?.data.attributes?.formats?.thumbnail.url} />
-                <Text size="md">{entry.author?.data.attributes.name}</Text>
-                <Text size="md" color="dimmed">
-                  •
+          <header>
+            <Group spacing={0} w="100%" noWrap={mediumDisplay}>
+              <Stack ta="left" w="100%" spacing={5}>
+                <Group noWrap spacing="xs">
+                  <Avatar size={30} radius="xl"
+                    src={import.meta.env.VITE_CMS + entry.author?.data.attributes.thumbnail?.data.attributes?.formats?.thumbnail.url} />
+                  <Text size="md">{entry.author?.data.attributes.name}</Text>
+                  <Text size="md" color="dimmed">
+                    •
+                  </Text>
+                  <Text size="md" color="dimmed">
+                    {new Date(entry.updatedAt).toLocaleDateString(i18n.language ?? "de", { year: 'numeric', month: 'long', day: 'numeric' })}
+                  </Text>
+                </Group>
+                <Title className={classes.title}>{entry.title}</Title>
+                <Text my="lg" italic size="md" className={classes.description}>
+                  {entry.description}
                 </Text>
-                <Text size="md" color="dimmed">
-                  {new Date(entry.updatedAt).toLocaleDateString(i18n.language ?? "de", { year: 'numeric', month: 'long', day: 'numeric' })}
-                </Text>
-              </Group>
-              <Title className={classes.title}>{entry.title}</Title>
-              <Text my="lg" italic size="md" className={classes.description}>
-                {entry.description}
-              </Text>
-            </Stack>
-            <Image src={import.meta.env.VITE_CMS + cover} height={140} width={140} />
-          </Group>
+              </Stack>
+              <Image src={import.meta.env.VITE_CMS + cover} height={140} width={140}
+                alt={entry?.cover?.data?.attributes?.alternativeText} />
+            </Group>
+          </header>
         </K7Page>
         <div >
-          {entry.content?.map((f: ContentFragment) => <Fragment key={f.id} {...f} />)}
+          {entry.content?.map((f: ContentFragment) => <section key={f.id}><Fragment {...f} /></section>)}
         </div>
         <K7Page background={"dark"} py={0}>
-          <Text size="sm" color="dimmed">
-            {t('article.publishedAt')} {new Date(entry.createdAt).toLocaleDateString(i18n.language ?? "de", { year: 'numeric', month: 'long', day: 'numeric' })}
-            {' '} {t('by')} {' ' + entry.author?.data.attributes.name}<br />
-            {t('article.updatedAt')} {new Date(entry.updatedAt).toLocaleDateString(i18n.language ?? "de", { year: 'numeric', month: 'long', day: 'numeric' })}.
-          </Text>
-          <Group position="right">
-            {tags?.map((tag, index) => <Badge variant="filled" key={index} color="orange" radius="xs">{tag}</Badge>)}
-          </Group>
+          <footer>
+            <Text size="sm" color="dimmed">
+              {t('article.publishedAt')} {new Date(entry.createdAt).toLocaleDateString(i18n.language ?? "de", { year: 'numeric', month: 'long', day: 'numeric' })}
+              {' '} {t('by')} {' ' + entry.author?.data.attributes.name}<br />
+              {t('article.updatedAt')} {new Date(entry.updatedAt).toLocaleDateString(i18n.language ?? "de", { year: 'numeric', month: 'long', day: 'numeric' })}.
+            </Text>
+            <Group position="right">
+              {tags?.map((tag, index) => <Badge variant="filled" key={index} color="orange" radius="xs">{tag}</Badge>)}
+            </Group>
+          </footer>
         </K7Page>
         <Space h={30} />
       </Stack>
-    </  >
+    </ article>
   )
 }

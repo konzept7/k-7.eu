@@ -228,7 +228,7 @@ export interface ListArticleResponseItem {
   publishedAt: string;
   author?: { data: AuthorResponseItem }
   departments?: { data: Array<DepartmentResponseItem> }
-  cover: any;
+  cover: MediaItem;
   tags: string;
   locale: string;
   status?: Status;
