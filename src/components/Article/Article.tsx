@@ -15,11 +15,24 @@ const useStyles = createStyles((theme) => ({
   },
 
   title: {
-    fontWeight: 700,
-    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-    lineHeight: 1.2,
+    fontSize: '2rem',
+    fontWeight: 900,
+    textUnderlineOffset: "-0.2em",
+    textDecorationLine: "underline",
+    textDecorationThickness: "0.15em",
+    textUnderlinePosition: "under",
+    textDecorationSkipInk: "none",
+    color: theme.colorScheme === 'dark' ? '#fff' : '#000',
+    textDecorationColor: theme.colors.brand[6],
+    textAlign: "left",
+    textShadow: "-2px -2px 4px rgba(0, 0, 0, 1),2px 2px 4px rgba(0,0,0, 1);",
+    [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
+      fontSize: '1.8rem',
+    },
   },
-
+  description: {
+    fontSize: '1.2rem',
+  },
   body: {
     padding: theme.spacing.md,
   },
@@ -103,8 +116,8 @@ export default function Article() {
                   {new Date(entry.updatedAt).toLocaleDateString(i18n.language ?? "de", { year: 'numeric', month: 'long', day: 'numeric' })}
                 </Text>
               </Group>
-              <Title>{entry.title}</Title>
-              <Text my="lg" italic size="md" color="dimmed">
+              <Title className={classes.title}>{entry.title}</Title>
+              <Text my="lg" italic size="md" className={classes.description}>
                 {entry.description}
               </Text>
             </Stack>

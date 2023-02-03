@@ -14,13 +14,13 @@ interface CollectionEntryProps {
 
 const useStyles = createStyles((theme) => ({
   card: {
-    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
+    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.brand[8] : theme.white,
     cursor: 'pointer',
   },
 
   title: {
     fontWeight: 700,
-    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+    fontFamily: `Krub, ${theme.fontFamily}`,
     lineHeight: 1.2,
   },
 
