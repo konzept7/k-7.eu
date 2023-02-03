@@ -13,7 +13,9 @@
       "blogs": "Here you will find all the latest news about the K7 Concept Karlsruhe.",
       "projects": "Here you will find a selection of our projects. \nUnfortunately we cannot publish all projects. \nIf you would like to learn more about our projects, please contact us."
     },
-    "updatedAt": "Last update:"
+    "updatedAt": "Last update:",
+    "partOfSeries": "This article is part of the series",
+    "part": "Part"
   },
   "by": "from",
   "community": "Community",
