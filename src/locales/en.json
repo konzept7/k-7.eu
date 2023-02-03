@@ -2,16 +2,30 @@
   "aboutUs": "About us",
   "article": {
     "back": "Back to all entries",
+    "blogs": "News",
+    "errorLoading": {
+      "blogs": "There was an error loading the news. \nPlease try again later.",
+      "projects": "An error occurred while loading the projects. \nPlease try again later."
+    },
+    "projects": "Projects",
     "publishedAt": "Published on:",
+    "selection": {
+      "blogs": "Here you will find all the latest news about the K7 Concept Karlsruhe.",
+      "projects": "Here you will find a selection of our projects. \nUnfortunately we cannot publish all projects. \nIf you would like to learn more about our projects, please contact us."
+    },
     "updatedAt": "Last update:"
   },
   "by": "from",
   "community": "Community",
   "contact": {
+    "adress": "address",
     "betterWriteSomething": "You should at least write something",
+    "email": "E-mail",
+    "hours": "working hours",
     "information": "Information",
     "invalidEmail": "Invalid E-mail",
     "nameNecessary": "Name is required",
+    "phone": "phone",
     "pleaseBeExact": "Please describe your request as precisely as possible.",
     "replySoon": "We will contact you as soon as possible!",
     "sendUsAMessage": "Send us a message",
@@ -21,13 +35,21 @@
     "whatIsItAbout": "What is it about?",
     "yourEmail": "Your email",
     "yourMessage": "Your message",
-    "yourName": "Your name",
-    "adress": "address",
-    "email": "E-mail",
-    "hours": "working hours",
-    "phone": "phone"
+    "yourName": "Your name"
+  },
+  "copied": "copied",
+  "copy": "To the clipboard",
+  "department": {
+    "allServices": "All services",
+    "errorLoadingMessage": "There was an error loading the department. \nPlease try again later.",
+    "errorLoadingTitle": "Error loading department",
+    "loading": "Loading department...",
+    "lookingFor": "Are you looking for a specialist in a specific technology or skill? \nHere is a selection of the technologies and skills we have in our team.",
+    "projectSelection": "This is just a selection of projects - unfortunately we cannot publish all projects.",
+    "skills": "technologies and skills"
   },
   "didYouKnow": "Did you know?",
+  "disclaimer": "K7-Concept Karlsruhe GmbH does not guarantee that the information provided on this website is complete, correct and in any case up-to-date. \nIn particular, K7-Concept Karlsruhe GmbH assumes no liability for content that is expressly or implicitly marked as third-party content. \nK7-konzept Karlsruhe GmbH is not responsible for ensuring that such content is complete, correct, up-to-date and legal and does not inadmissibly interfere with the legal interests of third parties. \nThis also applies to the content of websites referred to by a link.",
   "errorLoading": "Error at loading",
   "errorLoadingArticle": "There was an error loading the article. \nPlease try again later.",
   "header": {
@@ -39,11 +61,23 @@
     "description": "K7-concept Karlsruhe is a young company specializing in the construction of special machines and the development of software and hardware for industrial applications."
   },
   "imprint": "Imprint",
+  "imprintPage": {
+    "changesPossible": "K7-Concept Karlsruhe GmbH reserves the right to make changes or additions to the information provided or to remove it without prior notice.",
+    "disclaimerTitle": "Disclaimer",
+    "noClaims": "Under no circumstances is K7-Concept Karlsruhe GmbH liable for damage caused by a lack of usage options or data loss in connection with the use of documents or information or the provision of services that are accessible on this website.",
+    "responsible": "Content responsibility"
+  },
   "jobs": {
     "career": "Career",
     "noJobsAvailable": "We currently have no vacancies."
   },
   "news": "News",
+  "newsPage": {
+    "soon": "Of course we already have news, but because we are so busy we haven't found time to publish them here. \nCheck back in the next few days, we're working on it!"
+  },
+  "notReady": "Not yet available",
+  "notReadySorry": "Sorry, but this page is not ready yet. \nCheck back in the next few days, we're working on it!",
+  "ourClients": "Our clients",
   "pageNotFound": "Page not found",
   "pageNotFoundDescription": "This page does not exist. \nPlease check the URL or go back to the home page.",
   "projectStatus": {
@@ -55,10 +89,10 @@
     "Neu": "New"
   },
   "projects": {
-    "projects": "Projects",
-    "selection": "Here is a selection of our most recent projects. \nUnfortunately we cannot publish all projects. \nIf you would like to learn more about our projects, please contact us.",
     "errorLoadingMessage": "An error occurred while loading the projects. \nPlease try again later.",
-    "errorLoadingTitle": "error at loading"
+    "errorLoadingTitle": "error at loading",
+    "projects": "Projects",
+    "selection": "Here is a selection of our most recent projects. \nUnfortunately we cannot publish all projects. \nIf you would like to learn more about our projects, please contact us."
   },
   "services": {
     "ourServices": "Our services",
@@ -82,29 +116,5 @@
     "subTitle": "Who we are",
     "text": "We are a team of engineers specializing in special machine construction and the development of software and hardware for industrial plants. \nAs a development company, we not only offer design services, but also develop the associated software.",
     "title": "Not your classic engineering office"
-  },
-  "ourClients": "Our clients",
-  "copied": "copied",
-  "copy": "To the clipboard",
-  "department": {
-    "allServices": "All services",
-    "errorLoadingMessage": "There was an error loading the department. \nPlease try again later.",
-    "errorLoadingTitle": "Error loading department",
-    "loading": "Loading department...",
-    "lookingFor": "Are you looking for a specialist in a specific technology or skill? \nHere is a selection of the technologies and skills we have in our team.",
-    "projectSelection": "This is just a selection of projects - unfortunately we cannot publish all projects.",
-    "skills": "technologies and skills"
-  },
-  "disclaimer": "K7-Concept Karlsruhe GmbH does not guarantee that the information provided on this website is complete, correct and in any case up-to-date. \nIn particular, K7-Concept Karlsruhe GmbH assumes no liability for content that is expressly or implicitly marked as third-party content. \nK7-konzept Karlsruhe GmbH is not responsible for ensuring that such content is complete, correct, up-to-date and legal and does not inadmissibly interfere with the legal interests of third parties. \nThis also applies to the content of websites referred to by a link.",
-  "imprintPage": {
-    "changesPossible": "K7-Concept Karlsruhe GmbH reserves the right to make changes or additions to the information provided or to remove it without prior notice.",
-    "disclaimerTitle": "Disclaimer",
-    "noClaims": "Under no circumstances is K7-Concept Karlsruhe GmbH liable for damage caused by a lack of usage options or data loss in connection with the use of documents or information or the provision of services that are accessible on this website.",
-    "responsible": "Content responsibility"
-  },
-  "newsPage": {
-    "soon": "Of course we already have news, but because we are so busy we haven't found time to publish them here. \nCheck back in the next few days, we're working on it!"
-  },
-  "notReady": "Not yet available",
-  "notReadySorry": "Sorry, but this page is not ready yet. \nCheck back in the next few days, we're working on it!"
+  }
 }

@@ -9,12 +9,12 @@ import Error404 from '../Error/Error404';
 import K7Portal from './K7Portal';
 import Imprint from '../../pages/Imprint';
 import NotReady from '../../pages/NotReady';
-import Projects from '../../pages/Projects';
-import News from '../../pages/News';
 import Article from '../Article/Article';
 import { useTranslation } from 'react-i18next';
 import Department from '../../pages/Department';
 import ServiceCollection from '../../pages/ServiceCollection';
+import ArticleCollection from '../../pages/ArticleCollection';
+import Team from '../../pages/Team';
 
 
 
@@ -33,12 +33,13 @@ export default function Layout() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/jobs" element={<NotReady text={t("jobs.noJobsAvailable")} />} />
-              <Route path="/projects" element={<Projects />} />
+              <Route path="/projects" element={<ArticleCollection type="projects" />} />
               <Route path="/projects/:id" element={<Article />} />
+              <Route path="/news/:id" element={<Article />} />
               <Route path="/services" element={<ServiceCollection />} />
               <Route path="/services/:name" element={<Department />} />
-              <Route path="/news" element={<News />} />
-              <Route path="/team" element={<NotReady text={t('team.missing')} />} />
+              <Route path="/news" element={<ArticleCollection type="blogs" />} />
+              <Route path="/team" element={<Team />} />
               <Route path="/imprint" element={<Imprint />} />
               <Route path="*" element={<Error404 />} />
             </Routes>

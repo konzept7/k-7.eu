@@ -55,14 +55,19 @@ export interface Meta {
   pagination: { page: number; pageSize: number; pageCount: number; total: number }
 }
 export interface AuthorResponseItem {
-  data: {
-    id: number
-    attributes: {
-      name: string
-      position: string
-      thumbnail?: MediaItem
-    }
+  id: number
+  attributes: {
+    name?: string
+    position?: string
+    order?: number
+    bio?: string
+    thumbnail?: MediaItem
   }
+}
+
+export interface ListAuthorsResponse {
+  data: AuthorResponseItem[]
+  meta: Meta
 }
 
 export interface MediaItemFormat {
@@ -221,7 +226,7 @@ export interface ListArticleResponseItem {
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
-  author?: AuthorResponseItem
+  author?: { data: AuthorResponseItem }
   departments?: { data: Array<DepartmentResponseItem> }
   cover: any;
   tags: string;
@@ -317,8 +322,17 @@ export const getDepartment = async (id: string) => {
   return response.data.attributes
 }
 
+export const getAuthors = async (locale: string = "de") => {
+  const queryUrl = `${import.meta.env.VITE_CMS}/api/authors?locale=${locale}&populate[0]=thumbnail`
+  const request = await fetch(queryUrl, {
+    method: 'GET', headers
+  })
+  const response = await request.json() as ListAuthorsResponse
+  return response
+}
+
 export const getDepartmentByRoute = async (route: string, locale: string = "de") => {
-  const queryUrl = `${import.meta.env.VITE_CMS}/api/departments?locale=${locale}&populate[0]=cover,skills,icon&populate[1]=skills.technologies,skills.icon,blogs,projects.author,projects.cover,projects.departments,body&filters[route][$eqi]=${route}`
+  const queryUrl = `${import.meta.env.VITE_CMS}/api/departments?locale=${locale}&populate[0]=cover,skills,icon&populate[1]=skills.technologies,skills.icon,blogs,projects.author,projects.cover,projects.departments,body&populate[2]=projects.author.thumbnail&filters[route][$eqi]=${route}`
   const request = await fetch(queryUrl, {
     method: 'GET', headers
   })

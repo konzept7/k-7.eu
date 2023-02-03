@@ -14,13 +14,13 @@ interface CollectionEntryProps {
 
 const useStyles = createStyles((theme) => ({
   card: {
-    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
+    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.brand[8] : theme.white,
     cursor: 'pointer',
   },
 
   title: {
     fontWeight: 700,
-    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+    fontFamily: `Krub, ${theme.fontFamily}`,
     lineHeight: 1.2,
   },
 
@@ -40,7 +40,7 @@ export default function ArticleCard({ data, type }: CollectionEntryProps) {
 
   return (
     <Card withBorder radius="md" p={0} className={classes.card} onClick={() => {
-      navigate(type === "projects" ? `/projects/${data.id}` : `/blog/${data.id}`)
+      navigate(type === "projects" ? `/projects/${data.id}` : `/news/${data.id}`)
     }}>
       <Group noWrap spacing={0}>
         <Image src={import.meta.env.VITE_CMS + cover} height={140} width={140} />

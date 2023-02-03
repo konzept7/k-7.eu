@@ -2,7 +2,17 @@
   "article": {
     "back": "Zurück zu allen Einträgen",
     "publishedAt": "Veröffentlicht am:",
-    "updatedAt": "Letzte Aktualisierung:"
+    "updatedAt": "Letzte Aktualisierung:",
+    "projects": "Projekte",
+    "blogs": "Neuigkeiten",
+    "errorLoading": {
+      "projects": "Beim Laden der Projekte ist ein Fehler aufgetreten. Bitte versuche es später nochmal.",
+      "blogs": "Beim Laden der Neuigkeiten ist ein Fehler aufgetreten. Bitte versuche es später nochmal."
+    },
+    "selection": {
+      "projects": "Hier finden Sie eine Auswahl unserer Projekte. Leider können wir nicht alle Projekte veröffentlichen. Wenn Sie mehr über unsere Projekte erfahren möchten, kontaktieren Sie uns gerne.",
+      "blogs": "Hier finden Sie alle Neuigkeiten über K7-Konzept Karlsruhe."
+    }
   },
   "by": "von",
   "home": {

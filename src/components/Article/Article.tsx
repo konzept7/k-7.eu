@@ -15,11 +15,24 @@ const useStyles = createStyles((theme) => ({
   },
 
   title: {
-    fontWeight: 700,
-    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-    lineHeight: 1.2,
+    fontSize: '2rem',
+    fontWeight: 900,
+    textUnderlineOffset: "-0.2em",
+    textDecorationLine: "underline",
+    textDecorationThickness: "0.15em",
+    textUnderlinePosition: "under",
+    textDecorationSkipInk: "none",
+    color: theme.colorScheme === 'dark' ? '#fff' : '#000',
+    textDecorationColor: theme.colors.brand[6],
+    textAlign: "left",
+    textShadow: "-2px -2px 4px rgba(0, 0, 0, 1),2px 2px 4px rgba(0,0,0, 1);",
+    [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
+      fontSize: '1.8rem',
+    },
   },
-
+  description: {
+    fontSize: '1.2rem',
+  },
   body: {
     padding: theme.spacing.md,
   },
@@ -73,11 +86,13 @@ export default function Article() {
   const tags = entry?.tags?.split(",").map(t => t.trim())
 
   return (
-    <Container maw={1024}>
-      <Group position="left" my={30}>
-        <IconArrowLeft />
-        <Link to={type === "projects" ? "/projects" : "/blog"}>{t('article.back')}</Link>
-      </Group>
+    <>
+      <K7Page background={"dark"} py={0}>
+        <Group position="left" my={30}>
+          <IconArrowLeft />
+          <Link to={type === "projects" ? "/projects" : "/news"}>{t('article.back')}</Link>
+        </Group>
+      </K7Page>
       <Stack>
         <Group position="apart">
           <Stack spacing={0} justify="flex-start">
@@ -87,39 +102,43 @@ export default function Article() {
           </Stack>
           {entry.status && <Badge variant="dot" color={colorForStatus(entry.status!)}>{entry.status!}</Badge>}
         </Group>
-        <Group spacing={0} w="100%" noWrap={mediumDisplay}>
-          <Stack ta="left" w="100%" spacing={5}>
-            <Group noWrap spacing="xs">
-              <Avatar size={30} radius="xl"
-                src={import.meta.env.VITE_CMS + entry.author?.data.attributes.thumbnail?.data.attributes?.formats?.thumbnail.url} />
-              <Text size="md">{entry.author?.data.attributes.name}</Text>
-              <Text size="md" color="dimmed">
-                •
+        <K7Page background={"dark"} py={0}>
+          <Group spacing={0} w="100%" noWrap={mediumDisplay}>
+            <Stack ta="left" w="100%" spacing={5}>
+              <Group noWrap spacing="xs">
+                <Avatar size={30} radius="xl"
+                  src={import.meta.env.VITE_CMS + entry.author?.data.attributes.thumbnail?.data.attributes?.formats?.thumbnail.url} />
+                <Text size="md">{entry.author?.data.attributes.name}</Text>
+                <Text size="md" color="dimmed">
+                  •
+                </Text>
+                <Text size="md" color="dimmed">
+                  {new Date(entry.updatedAt).toLocaleDateString(i18n.language ?? "de", { year: 'numeric', month: 'long', day: 'numeric' })}
+                </Text>
+              </Group>
+              <Title className={classes.title}>{entry.title}</Title>
+              <Text my="lg" italic size="md" className={classes.description}>
+                {entry.description}
               </Text>
-              <Text size="md" color="dimmed">
-                {new Date(entry.updatedAt).toLocaleDateString(i18n.language ?? "de", { year: 'numeric', month: 'long', day: 'numeric' })}
-              </Text>
-            </Group>
-            <Title>{entry.title}</Title>
-            <Text my="lg" italic size="md" color="dimmed">
-              {entry.description}
-            </Text>
-          </Stack>
-          <Image src={import.meta.env.VITE_CMS + cover} height={140} width={140} />
-        </Group>
+            </Stack>
+            <Image src={import.meta.env.VITE_CMS + cover} height={140} width={140} />
+          </Group>
+        </K7Page>
         <div >
           {entry.content?.map((f: ContentFragment) => <Fragment key={f.id} {...f} />)}
         </div>
-        <Text size="sm" color="dimmed">
-          {t('article.publishedAt')} {new Date(entry.createdAt).toLocaleDateString(i18n.language ?? "de", { year: 'numeric', month: 'long', day: 'numeric' })}
-          {' '} {t('by')} {' ' + entry.author?.data.attributes.name}<br />
-          {t('article.updatedAt')} {new Date(entry.updatedAt).toLocaleDateString(i18n.language ?? "de", { year: 'numeric', month: 'long', day: 'numeric' })}.
-        </Text>
-        <Group position="right">
-          {tags?.map((tag, index) => <Badge variant="filled" key={index} color="orange" radius="xs">{tag}</Badge>)}
-        </Group>
+        <K7Page background={"dark"} py={0}>
+          <Text size="sm" color="dimmed">
+            {t('article.publishedAt')} {new Date(entry.createdAt).toLocaleDateString(i18n.language ?? "de", { year: 'numeric', month: 'long', day: 'numeric' })}
+            {' '} {t('by')} {' ' + entry.author?.data.attributes.name}<br />
+            {t('article.updatedAt')} {new Date(entry.updatedAt).toLocaleDateString(i18n.language ?? "de", { year: 'numeric', month: 'long', day: 'numeric' })}.
+          </Text>
+          <Group position="right">
+            {tags?.map((tag, index) => <Badge variant="filled" key={index} color="orange" radius="xs">{tag}</Badge>)}
+          </Group>
+        </K7Page>
         <Space h={30} />
       </Stack>
-    </ Container >
+    </  >
   )
 }
