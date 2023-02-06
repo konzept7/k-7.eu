@@ -28,7 +28,7 @@ export default function ParagraphFragment(fragment: ContentFragmentsParagraph) {
   }
 
   return <K7Page py={20} key={fragment.id}>
-    <Title order={4}>{fragment.title}</Title>
+    <Title order={3}>{fragment.title}</Title>
     <ReactMarkdown className={classes.text}>{fragment.content!}</ReactMarkdown>
   </K7Page>
 }
