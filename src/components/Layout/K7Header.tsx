@@ -153,7 +153,7 @@ export default function HeaderMiddle({ links }: HeaderMiddleProps) {
           </Menu>
         </Group>
         <Link to="/">
-          <Image src={mediumDisplay ? LogoWithoutText : Logo} height={34} />
+          <Image src={mediumDisplay ? LogoWithoutText : Logo} height={34} width={28} />
         </Link>
 
         <Group spacing={0} className={classes.social} position="right" noWrap>

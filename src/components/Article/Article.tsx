@@ -144,7 +144,7 @@ export default function Article() {
                 alt={entry?.cover?.data?.attributes?.alternativeText} />
             </Group>
             {
-              entry.article_collection && (<>
+              entry.article_collection?.data && (<>
                 <Text mt="sm" mb="md" italic size="lg" color={theme.white}>
                   {t('article.partOfSeries')}
                   "{entry.article_collection.data.attributes.name}" - {entry.article_collection.data.attributes.description}:
