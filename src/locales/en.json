@@ -13,7 +13,9 @@
       "blogs": "Here you will find all the latest news about the K7 Concept Karlsruhe.",
       "projects": "Here you will find a selection of our projects. \nUnfortunately we cannot publish all projects. \nIf you would like to learn more about our projects, please contact us."
     },
-    "updatedAt": "Last update:"
+    "updatedAt": "Last update:",
+    "partOfSeries": "This article is part of the series",
+    "part": "Part"
   },
   "by": "from",
   "community": "Community",
@@ -64,6 +66,7 @@
   "imprintPage": {
     "changesPossible": "K7-Concept Karlsruhe GmbH reserves the right to make changes or additions to the information provided or to remove it without prior notice.",
     "disclaimerTitle": "Disclaimer",
+    "register": "Register",
     "noClaims": "Under no circumstances is K7-Concept Karlsruhe GmbH liable for damage caused by a lack of usage options or data loss in connection with the use of documents or information or the provision of services that are accessible on this website.",
     "responsible": "Content responsibility"
   },

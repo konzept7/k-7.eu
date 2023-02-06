@@ -219,7 +219,19 @@ export interface DepartmentListResponse {
   data: DepartmentResponseItem[];
   meta: Meta;
 }
-
+export interface ArticleCollectionItem {
+  id: number;
+  attributes: {
+    name: string;
+    description: string;
+    blogs: {
+      data: {
+        id: number
+        attributes: ListArticleResponseItem
+      }[]
+    }
+  }
+}
 export interface ListArticleResponseItem {
   title: string;
   description: string;
@@ -233,6 +245,7 @@ export interface ListArticleResponseItem {
   locale: string;
   status?: Status;
   hours?: number;
+  article_collection?: { data: ArticleCollectionItem };
   content?: (
     ContentFragmentsCodeblock
     | ContentComponentsImage
@@ -284,7 +297,7 @@ export const queryArticles = async (queryType: CollectionQueryType, populate: Ar
 }
 
 export const getArticleEntry = async (queryType: CollectionQueryType, id: string, locale: string = "de") => {
-  const queryUrl = `${import.meta.env.VITE_CMS}/api/${queryType}/${id}?locale=${locale}&populate[0]=author,cover,department,content&populate[1]=content.image,author.thumbnail&populate[2]=content.image.image?locale=${locale}`
+  const queryUrl = `${import.meta.env.VITE_CMS}/api/${queryType}/${id}?locale=${locale}&populate[0]=author,cover,department,content,article_collection&populate[1]=content.image,author.thumbnail,article_collection.blogs&populate[2]=content.image.image?locale=${locale}`
   const request = await fetch(queryUrl, {
     method: 'GET',
     headers
@@ -332,11 +345,21 @@ export const getAuthors = async (locale: string = "de") => {
 }
 
 export const getDepartmentByRoute = async (route: string, locale: string = "de") => {
-  const queryUrl = `${import.meta.env.VITE_CMS}/api/departments?locale=${locale}&populate[0]=cover,skills,icon&populate[1]=skills.technologies,skills.icon,blogs,projects.author,projects.cover,projects.departments,body&populate[2]=projects.author.thumbnail&filters[route][$eqi]=${route}`
+  // https://cms.k-7.eu/api/departments?locale=de&populate[0]=cover,skills,icon&populate[1]=skills.technologies,skills.icon,blogs,projects.author,projects.cover,projects.departments,body&populate[2]=projects.author.thumbnail&filters[route][$eqi]=software
+  const queryUrl = `${import.meta.env.VITE_CMS}/api/departments?locale=${locale}&populate[0]=cover,skills,icon,projects&populate[1]=skills.technologies,skills.icon,projects.author,projects.cover,projects.departments&populate[2]=body.image,projects.author.thumbnail&filters[route][$eqi]=${route}`
   const request = await fetch(queryUrl, {
     method: 'GET', headers
   })
   const response = await request.json() as DepartmentListResponse
   if (response.data.length !== 0) return response.data[0]
   return undefined
+}
+
+export const getArticleCollection = async (series: string, locale: string = "de") => {
+  const queryUrl = `${import.meta.env.VITE_CMS}/api/blogs?locale=${locale}&filters[series][$eqi]=${series}`
+  const request = await fetch(queryUrl, {
+    method: 'GET', headers
+  })
+  const response = await request.json() as ListArticleResponse
+  return response.data
 }

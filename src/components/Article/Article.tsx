@@ -1,4 +1,4 @@
-import { Center, Group, Loader, Stack, Title, Image, Text, createStyles, Badge, Avatar, Container, Space } from "@mantine/core";
+import { Center, Group, Loader, Stack, Title, Image, Text, createStyles, Badge, Avatar, Space } from "@mantine/core";
 import { useDocumentTitle, useMediaQuery } from "@mantine/hooks";
 import { showNotification } from "@mantine/notifications";
 import { IconArrowLeft } from "@tabler/icons";
@@ -8,7 +8,7 @@ import { ListArticleResponseItem, colorForStatus, getArticleEntry, ContentFragme
 import K7Page from "../Layout/K7Page";
 import { useTranslation } from "react-i18next"
 import Fragment from "../Fragments/Fragment";
-import { createArticleLd, companyLd, createBreadcrumbLd } from "../../utils/seo";
+import { createArticleLd, createBreadcrumbLd } from "../../utils/seo";
 const useStyles = createStyles((theme) => ({
   card: {
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
@@ -47,7 +47,7 @@ const widths = {
 }
 
 export default function Article() {
-  const { classes } = useStyles();
+  const { classes, theme } = useStyles();
   const [entry, setEntry] = useState<ListArticleResponseItem | undefined>(undefined)
   const location = useLocation();
   const type = location.pathname.split("/").includes("projects") ? "projects" : "blogs";
@@ -136,13 +136,30 @@ export default function Article() {
                   </Text>
                 </Group>
                 <Title className={classes.title}>{entry.title}</Title>
-                <Text my="lg" italic size="md" className={classes.description}>
+                <Text my="lg" italic size="lg" className={classes.description} color={theme.white}>
                   {entry.description}
                 </Text>
               </Stack>
               <Image src={import.meta.env.VITE_CMS + cover} height={140} width={140}
                 alt={entry?.cover?.data?.attributes?.alternativeText} />
             </Group>
+            {
+              entry.article_collection && (<>
+                <Text mt="sm" mb="md" italic size="lg" color={theme.white}>
+                  {t('article.partOfSeries')}
+                  "{entry.article_collection.data.attributes.name}" - {entry.article_collection.data.attributes.description}:
+                </Text>
+                <Stack spacing="xs">
+                  {
+                    entry.article_collection.data.attributes.blogs?.data.map((blog: { id: number, attributes: ListArticleResponseItem }, i) =>
+                      <Link key={blog.id} style={{ marginLeft: theme.spacing.lg }} to={"/news/" + blog.id}>
+                        {t('article.part')} {i + 1}: {blog.attributes.title}
+                      </Link>
+                    )}
+                </Stack>
+              </>
+              )
+            }
           </header>
         </K7Page>
         <div >

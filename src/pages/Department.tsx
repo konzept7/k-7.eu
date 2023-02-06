@@ -97,9 +97,10 @@ export default function Department() {
       </K7Page>
       {
         department.attributes.body &&
-        department.attributes.body.map((fragment) => {
+        department.attributes.body.map((fragment, index) => {
+          const key = `${fragment.__component ?? ''}-${fragment.id}`
           return (
-            <Fragment key={fragment.id} {...fragment} />
+            <Fragment key={key} {...fragment} />
           )
         })
 

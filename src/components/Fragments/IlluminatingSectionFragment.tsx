@@ -102,9 +102,9 @@ export default function IlluminatingSectionFragment(fragment: ContentFragmentsIl
     rootMargin: "0px",
   });
   const { classes, cx, theme } = useStyles();
-
+  const key = `${fragment.__component ?? ''}-${fragment.id}`
   return (
-    <Container fluid ref={containerRef} className={cx(classes.container,)} my={30} p={0}>
+    <Container fluid ref={containerRef} className={cx(classes.container,)} my={30} p={0} key={key}>
       <Group noWrap align="flex-start" spacing={0}>
         <div className={cx(classes.iconContainer, { [classes.intersecting]: containerEntry?.isIntersecting })}>
           <i className={cx('ti ti-' + fragment.icon, classes.icon)} />

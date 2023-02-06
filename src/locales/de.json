@@ -12,7 +12,9 @@
     "selection": {
       "projects": "Hier finden Sie eine Auswahl unserer Projekte. Leider können wir nicht alle Projekte veröffentlichen. Wenn Sie mehr über unsere Projekte erfahren möchten, kontaktieren Sie uns gerne.",
       "blogs": "Hier finden Sie alle Neuigkeiten über K7-Konzept Karlsruhe."
-    }
+    },
+    "partOfSeries": "Dieser Artikel ist Teil der Serie",
+    "part": "Teil"
   },
   "by": "von",
   "home": {
@@ -105,6 +107,7 @@
   },
   "imprintPage": {
     "responsible": "Inhaltlich verantwortlich",
+    "register": "Register",
     "disclaimerTitle": "Haftungsausschluss",
     "changesPossible": "Die K7-Konzept Karlsruhe GmbH behält sich das Recht vor, ohne vorherige Ankündigung Änderungen oder Ergänzungen der bereitgestellten Informationen vorzunehmen oder diese zu entfernen.",
     "noClaims": "Auf keinen Fall haftet die K7-Konzept Karlsruhe GmbH für Schäden, die durch fehlende Nutzungsmöglichkeiten oder Datenverluste im Zusammenhang mit der Nutzung von Dokumenten oder Informationen bzw. der Erbringung von Dienstleistungen entstehen, die auf dieser Website zugänglich sind."

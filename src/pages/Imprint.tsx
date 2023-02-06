@@ -30,7 +30,7 @@ export default function Imprint() {
             {address.map((line, i) => { return (<li key={i}>{line}</li>) })}
           </ul>
         </Group>
-        <Title order={3}>{t('imprint.register')}</Title>
+        <Title order={3}>{t('imprintPage.register')}</Title>
         <Group position="left" align="center">
           <CopyButton value={registrar.join("\n")} timeout={5000}>
             {({ copied, copy }) => (
