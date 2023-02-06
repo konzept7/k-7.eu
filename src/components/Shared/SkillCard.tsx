@@ -37,7 +37,7 @@ function TechRow(item: Technology) {
 
 
   return (
-    <Grid my={matches ? 0 : 3} align="center">
+    <Grid my={matches ? 0 : 3} align="center" key={item.id}>
       <Grid.Col span={3}>
         <Group position="center">
           {item.attributes?.highlight ? <IconStar size={16} offset={-10} color="yellow" /> : null}
@@ -49,7 +49,7 @@ function TechRow(item: Technology) {
           <Rating readOnly value={parseLevel(item.attributes?.level) + 1} color="cyan" />
           <Group display={matches ? 'none' : undefined}>
             {(item.attributes?.keywords?.split(",") ?? []).map((keyword) => {
-              return <Badge color="gray" radius="sm" variant="filled">{keyword}</Badge>
+              return <Badge key={item.id + keyword} color="gray" radius="sm" variant="filled">{keyword}</Badge>
             })}
           </Group>
         </Stack>

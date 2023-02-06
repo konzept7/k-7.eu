@@ -11,24 +11,25 @@ import SplitFeatureCardFragment from "./SplitFeatureCardFragment";
 
 export default function Fragment(fragment: ContentFragment) {
 
+  const key = `${fragment.__component ?? ''}-${fragment.id}`
   switch (fragment.__component) {
     case "content-components.image":
-      return <ImageFragment key={fragment.id} {...fragment} />
+      return <ImageFragment key={key} {...fragment} />
     case "content-fragments.section":
     case "content-fragments.paragraph":
-      return <ParagraphFragment key={fragment.id} {...fragment} />
+      return <ParagraphFragment key={key} {...fragment} />
     case "content-fragments.quote":
-      return <QuoteFragment key={fragment.id} {...fragment} />
+      return <QuoteFragment key={key} {...fragment} />
     case "content-fragments.codeblock":
-      return <CodeblockFragment key={fragment.id} {...fragment} />
+      return <CodeblockFragment key={key} {...fragment} />
     case "content-fragments.illuminating-section":
-      return <IlluminatingSectionFragment key={fragment.id} {...fragment} />
+      return <IlluminatingSectionFragment key={key} {...fragment} />
     case "content-fragments.did-you-know":
-      return <DidYouKnowFragment key={fragment.id} {...fragment} />
+      return <DidYouKnowFragment key={key} {...fragment} />
     case "content-fragments.split-feature-card":
-      return <SplitFeatureCardFragment key={fragment.id} {...fragment} />
+      return <SplitFeatureCardFragment key={key} {...fragment} />
     case "content-fragments.single-feature-card":
-      return <SingleFeatureCardFragment key={fragment.id} {...fragment} />
+      return <SingleFeatureCardFragment key={key} {...fragment} />
     default: return null
   }
 
