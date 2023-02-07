@@ -28,7 +28,7 @@ export default function Fragment(fragment: ContentFragment) {
       return <DidYouKnowFragment key={key} {...fragment} />
     case "content-fragments.split-feature-card":
       return <SplitFeatureCardFragment key={key} {...fragment} />
-    case "content-fragments.single-feature-card":
+    case "content-fragments.fact-card":
       return <SingleFeatureCardFragment key={key} {...fragment} />
     default: return null
   }
