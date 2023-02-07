@@ -3,8 +3,10 @@ import CodeblockFragment from "./CodeblockFragment";
 import DidYouKnowFragment from "./DidYouKnowFragment";
 import IlluminatingSectionFragment from "./IlluminatingSectionFragment";
 import ImageFragment from "./ImageFragment";
+import ImageParagraphFragment from "./ImageParagraphFragment";
 import ParagraphFragment from "./ParagraphFragment";
 import QuoteFragment from "./QuoteFragment";
+import SeparatorFragment from "./SeparatorFragment";
 import SingleFeatureCardFragment from "./SingleFeatureCardFragment";
 import SplitFeatureCardFragment from "./SplitFeatureCardFragment";
 
@@ -18,6 +20,8 @@ export default function Fragment(fragment: ContentFragment) {
     case "content-fragments.section":
     case "content-fragments.paragraph":
       return <ParagraphFragment key={key} {...fragment} />
+    case "content-fragments.image-paragraph":
+      return <ImageParagraphFragment key={key} {...fragment} />
     case "content-fragments.quote":
       return <QuoteFragment key={key} {...fragment} />
     case "content-fragments.codeblock":
@@ -30,7 +34,11 @@ export default function Fragment(fragment: ContentFragment) {
       return <SplitFeatureCardFragment key={key} {...fragment} />
     case "content-fragments.fact-card":
       return <SingleFeatureCardFragment key={key} {...fragment} />
-    default: return null
+    case "content-fragments.separator":
+      return <SeparatorFragment key={key} {...fragment} />
+    default: 
+      console.log('fragment renderer: unknown component ',fragment.__component)
+      return null
   }
 
 }

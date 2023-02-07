@@ -116,6 +116,14 @@ export interface ContentFragmentsParagraph extends ContentFragment {
   content?: string;
   highlight?: boolean;
 }
+export interface ContentFragmentsImageParagraph extends ContentFragment {
+  title?: string;
+  content?: string;
+  highlight?: boolean;
+  image?: MediaItem;
+  renderSize?: "small" | "medium" | "large";
+  caption?: string;
+}
 export interface ContentFragmentsQuote extends ContentFragment {
   author?: string;
   quote?: string;
@@ -155,6 +163,12 @@ export interface ContentFragmentsFeatureCard extends ContentFragment {
 export interface ContentFragmentsSplitCard extends ContentFragment {
   items?: ContentFragmentsFeatureCard[]
 }
+
+export interface ContentFragmentsSeparator extends ContentFragment {
+  icon?: string
+  color?: string
+}
+
 
 export interface SkillListResponse {
   data?: SkillListResponseDataItem[];
