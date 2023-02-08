@@ -291,7 +291,7 @@ export const queryArticles = async (queryType: CollectionQueryType, populate: Ar
     queryUrl += "&populate[1]=author.thumbnail"
   }
   if (department) {
-    const departmentReq = await fetch(`${import.meta.env.VITE_CMS}/api/departments?locale=${locale}&filters[name][$eqi]=${department}?locale=${locale}`, {
+    const departmentReq = await fetch(`${import.meta.env.VITE_CMS}/api/departments?locale=${locale}&filters[name][$eqi]=${department}`, {
       method: 'GET', headers
     })
     const departmentRes = await departmentReq.json()
