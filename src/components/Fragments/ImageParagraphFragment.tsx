@@ -1,7 +1,6 @@
-import { Title, Text, createStyles, Grid, Space } from "@mantine/core";
-import { GroupedTransition } from "@mantine/core/lib/Transition";
-import { IconGridDots } from "@tabler/icons";
+import { Title, createStyles, Grid, Space, Flex, Group } from "@mantine/core";
 import ReactMarkdown from "react-markdown";
+import { redirect } from "react-router-dom";
 import { ContentComponentsImage, ContentFragmentsImageParagraph } from "../../utils/queryCms";
 import K7Page from "../Layout/K7Page";
 import ImageFragment from "./ImageFragment";
@@ -13,6 +12,12 @@ const useStyles = createStyles((theme) => ({
   },
   text: {
     fontSize: '1.1rem'
+  },
+  containerWrap: {
+    flexWrap: "nowrap",
+    [`@media (max-width: ${theme.breakpoints.md}px)`]: {
+      flexWrap: "wrap",
+    }
   }
 }));
 
@@ -31,29 +36,23 @@ export default function ImageParagraphFragment(fragment: ContentFragmentsImagePa
       <K7Page background="light" key={fragment.id}>
         <Title order={1} ta="center" color="dark" >{fragment.title}</Title>
         <Space h="lg" />
-        <Grid>
-          <Grid.Col span={3}>
-            <ImageFragment key={fragment.id} {...imageFragment} />
-          </Grid.Col>
-          <Grid.Col span={9}>
-            <ReactMarkdown className={classes.highlightText}>
-              {fragment.content!}
-            </ReactMarkdown>
-          </Grid.Col>
-        </Grid>
+
+        <Group>
+          <ImageFragment key={fragment.id} {...imageFragment} />
+          <ReactMarkdown className={classes.highlightText}>
+            {fragment.content!}
+          </ReactMarkdown>
+        </Group>
       </K7Page>
     )
   }
 
   return <K7Page py={20} key={fragment.id}>
-    <Grid>
-      <Grid.Col span={3}>
-        <ImageFragment key={fragment.id} {...imageFragment} />
-      </Grid.Col>
-      <Grid.Col span={9}>
-        <Title order={3}>{fragment.title}</Title>
-        <ReactMarkdown className={classes.text}>{fragment.content!}</ReactMarkdown>
-      </Grid.Col>
-    </Grid>
+    <Title order={3}>{fragment.title}</Title>
+    <Space h="lg" />
+    <Group className={classes.containerWrap} align="flex-start">
+      <ImageFragment key={fragment.id} {...imageFragment} />
+      <ReactMarkdown className={classes.text}>{fragment.content!}</ReactMarkdown>
+    </Group>
   </K7Page>
 }
