@@ -282,9 +282,9 @@ export interface ListArticleResponse {
 
 
 
-type PopulateArticleWith = "departments" | "content" | "author" | "cover"
+type PopulateArticleWith = "departments" | "content" | "author" | "cover" | "technologies"
 export type CollectionQueryType = "projects" | "blogs"
-export const queryArticles = async (queryType: CollectionQueryType, populate: Array<PopulateArticleWith> = ["author", "content", "cover", "departments"], locale: string = "de", department: string | undefined = undefined) => {
+export const queryArticles = async (queryType: CollectionQueryType, populate: Array<PopulateArticleWith> = ["author", "content", "cover", "departments", "technologies"], locale: string = "de", department: string | undefined = undefined) => {
 
   let queryUrl = `${import.meta.env.VITE_CMS}/api/${queryType}?locale=${locale}&populate[0]=${populate.join("%2C")}`
   if (populate.includes("author")) {
@@ -311,7 +311,7 @@ export const queryArticles = async (queryType: CollectionQueryType, populate: Ar
 }
 
 export const getArticleEntry = async (queryType: CollectionQueryType, id: string, locale: string = "de") => {
-  const queryUrl = `${import.meta.env.VITE_CMS}/api/${queryType}/${id}?locale=${locale}&populate[0]=author,cover,department,content,article_collection&populate[1]=content.image,author.thumbnail,article_collection.blogs&populate[2]=content.image.image?locale=${locale}`
+  const queryUrl = `${import.meta.env.VITE_CMS}/api/${queryType}/${id}?locale=${locale}&populate[0]=author,cover,departments,technologies,content,article_collection&populate[1]=content.image,author.thumbnail,article_collection.blogs&populate[2]=content.image.image`
   const request = await fetch(queryUrl, {
     method: 'GET',
     headers
