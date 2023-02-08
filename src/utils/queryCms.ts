@@ -280,6 +280,19 @@ export interface ListArticleResponse {
   meta: Meta;
 }
 
+export interface ReferenceResponseItem {
+  companyName: string;
+  link: string;
+  logo?: MediaItem;
+}
+export interface ListReferencesResponse {
+  data: {
+    id: number
+    attributes: ReferenceResponseItem
+  }[];
+  meta: Meta;
+}
+
 
 
 type PopulateArticleWith = "departments" | "content" | "author" | "cover" | "technologies"
@@ -375,4 +388,13 @@ export const getArticleCollection = async (series: string, locale: string = "de"
   })
   const response = await request.json() as ListArticleResponse
   return response.data
+}
+
+export const getReferences = async () => {
+  const queryUrl = `${import.meta.env.VITE_CMS}/api/references?populate[0]=logo`
+  const request = await fetch(queryUrl, {
+    method: 'GET', headers
+  })
+  const response = await request.json() as ListReferencesResponse
+  return response
 }
