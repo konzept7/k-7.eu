@@ -116,6 +116,14 @@ export interface ContentFragmentsParagraph extends ContentFragment {
   content?: string;
   highlight?: boolean;
 }
+export interface ContentFragmentsImageParagraph extends ContentFragment {
+  title?: string;
+  content?: string;
+  highlight?: boolean;
+  image?: MediaItem;
+  renderSize?: "small" | "medium" | "large";
+  caption?: string;
+}
 export interface ContentFragmentsQuote extends ContentFragment {
   author?: string;
   quote?: string;
@@ -155,6 +163,12 @@ export interface ContentFragmentsFeatureCard extends ContentFragment {
 export interface ContentFragmentsSplitCard extends ContentFragment {
   items?: ContentFragmentsFeatureCard[]
 }
+
+export interface ContentFragmentsSeparator extends ContentFragment {
+  icon?: string
+  color?: string
+}
+
 
 export interface SkillListResponse {
   data?: SkillListResponseDataItem[];
@@ -268,16 +282,16 @@ export interface ListArticleResponse {
 
 
 
-type PopulateArticleWith = "departments" | "content" | "author" | "cover"
+type PopulateArticleWith = "departments" | "content" | "author" | "cover" | "technologies"
 export type CollectionQueryType = "projects" | "blogs"
-export const queryArticles = async (queryType: CollectionQueryType, populate: Array<PopulateArticleWith> = ["author", "content", "cover", "departments"], locale: string = "de", department: string | undefined = undefined) => {
+export const queryArticles = async (queryType: CollectionQueryType, populate: Array<PopulateArticleWith> = ["author", "content", "cover", "departments", "technologies"], locale: string = "de", department: string | undefined = undefined) => {
 
   let queryUrl = `${import.meta.env.VITE_CMS}/api/${queryType}?locale=${locale}&populate[0]=${populate.join("%2C")}`
   if (populate.includes("author")) {
     queryUrl += "&populate[1]=author.thumbnail"
   }
   if (department) {
-    const departmentReq = await fetch(`${import.meta.env.VITE_CMS}/api/departments?locale=${locale}&filters[name][$eqi]=${department}?locale=${locale}`, {
+    const departmentReq = await fetch(`${import.meta.env.VITE_CMS}/api/departments?locale=${locale}&filters[name][$eqi]=${department}`, {
       method: 'GET', headers
     })
     const departmentRes = await departmentReq.json()
@@ -297,7 +311,7 @@ export const queryArticles = async (queryType: CollectionQueryType, populate: Ar
 }
 
 export const getArticleEntry = async (queryType: CollectionQueryType, id: string, locale: string = "de") => {
-  const queryUrl = `${import.meta.env.VITE_CMS}/api/${queryType}/${id}?locale=${locale}&populate[0]=author,cover,department,content,article_collection&populate[1]=content.image,author.thumbnail,article_collection.blogs&populate[2]=content.image.image?locale=${locale}`
+  const queryUrl = `${import.meta.env.VITE_CMS}/api/${queryType}/${id}?locale=${locale}&populate[0]=author,cover,departments,technologies,content,article_collection&populate[1]=content.image,author.thumbnail,article_collection.blogs&populate[2]=content.image.image`
   const request = await fetch(queryUrl, {
     method: 'GET',
     headers
@@ -345,8 +359,7 @@ export const getAuthors = async (locale: string = "de") => {
 }
 
 export const getDepartmentByRoute = async (route: string, locale: string = "de") => {
-  // https://cms.k-7.eu/api/departments?locale=de&populate[0]=cover,skills,icon&populate[1]=skills.technologies,skills.icon,blogs,projects.author,projects.cover,projects.departments,body&populate[2]=projects.author.thumbnail&filters[route][$eqi]=software
-  const queryUrl = `${import.meta.env.VITE_CMS}/api/departments?locale=${locale}&populate[0]=cover,skills,icon,projects&populate[1]=skills.technologies,skills.icon,projects.author,projects.cover,projects.departments&populate[2]=body.image,projects.author.thumbnail&filters[route][$eqi]=${route}`
+  const queryUrl = `${import.meta.env.VITE_CMS}/api/departments?locale=${locale}&populate[0]=cover,skills,icon,projects&populate[1]=skills.technologies,skills.icon,projects.author,projects.cover,projects.departments&populate[2]=body.image,projects.author.thumbnail,body.items&filters[route][$eqi]=${route}`
   const request = await fetch(queryUrl, {
     method: 'GET', headers
   })

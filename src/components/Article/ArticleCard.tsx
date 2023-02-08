@@ -59,8 +59,10 @@ export default function ArticleCard({ data, type }: CollectionEntryProps) {
           </Text>
           <Group noWrap spacing="xs">
             <Group spacing="xs" noWrap>
-              <Avatar size={20} radius="xl"
-                src={import.meta.env.VITE_CMS + item.author?.data.attributes.thumbnail?.data.attributes?.formats?.thumbnail.url} />
+              {item.author?.data.attributes.thumbnail!.data &&
+                <Avatar size={20} radius="xl"
+                  src={import.meta.env.VITE_CMS + item.author?.data.attributes.thumbnail!.data.attributes?.formats?.thumbnail.url} />
+              }
               <Text size="xs">{item.author?.data.attributes.name}</Text>
             </Group>
             <Text size="xs" color="dimmed">

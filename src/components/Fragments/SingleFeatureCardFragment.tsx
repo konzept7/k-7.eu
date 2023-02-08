@@ -14,7 +14,7 @@ export default function SingleFeatureCardFragment(fragment: ContentFragmentsFeat
     root: containerRef.current,
     threshold: 0.4,
   });
-
+  const url = fragment.image?.data?.attributes?.formats?.large?.url ?? fragment.image?.data?.attributes?.url
   return (
     <K7Page>
       <Stack p={5} w="100%">
@@ -26,7 +26,7 @@ export default function SingleFeatureCardFragment(fragment: ContentFragmentsFeat
               </ReactMarkdown>
               {fragment.link && <Link to={fragment.link} className={classes.text}>&gt; {fragment.linkLabel}</Link>}
             </Stack>
-            {fragment.image && <Image radius="md" src={fragment.image?.data?.attributes?.url} w="100%" className={cx(classes.image, { [classes.imageUp]: entry?.isIntersecting })} style={{ maxHeight: 500, marginLeft: 'auto', marginRight: 'auto' }} alt={fragment.image?.data?.attributes?.alternativeText} />}
+            {fragment.image && <Image radius="md" src={import.meta.env.VITE_CMS + url} w="100%" className={cx(classes.image, { [classes.imageUp]: entry?.isIntersecting })} style={{ maxHeight: 500, marginLeft: 'auto', marginRight: 'auto' }} alt={fragment.image?.data?.attributes?.alternativeText} />}
           </SimpleGrid>
         </Paper>
       </Stack>
