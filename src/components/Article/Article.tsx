@@ -112,15 +112,16 @@ export default function Article() {
         </Group>
       </K7Page>
       <Stack>
-        <Group position="apart">
-          <Stack spacing={0} justify="flex-start">
-            {
-              entry.departments?.data.map((department) => <Text transform="uppercase" color="dimmed" lh={1.1} weight={700} size="xs" key={department.id}>{department.attributes.name}</Text>)
-            }
-          </Stack>
-          {entry.status && <Badge variant="dot" color={colorForStatus(entry.status!)}>{entry.status!}</Badge>}
-        </Group>
         <K7Page background={"dark"} py={0}>
+          <Group position="apart">
+            <Stack spacing={0} justify="flex-start">
+              {
+                entry.departments?.data.map((department) => <Text transform="uppercase" color="dimmed" lh={1.1} weight={700} size="xs" key={department.id}>{department.attributes.name}</Text>)
+              }
+            </Stack>
+            {entry.status && <Badge variant="dot" color={colorForStatus(entry.status!)}>{entry.status!}</Badge>}
+          </Group>
+          <Space h="md" />
           <header>
             <Group spacing={0} w="100%" noWrap={mediumDisplay}>
               <Stack ta="left" w="100%" spacing={5}>
