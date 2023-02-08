@@ -1,43 +1,15 @@
 import { Text, createStyles, Center, Stack, Group, Image, Box } from "@mantine/core";
 import { useIntersection } from "@mantine/hooks";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import audi_l from "../../assets/ref/audi.svg"
 import aumann_l from "../../assets/ref/aumann-ag-logo.svg"
 import bmw_l from "../../assets/ref/bmw.svg"
 import mac from "../../assets/ref/mac.png"
 import fft_l from "../../assets/ref/fft.svg"
 import { useTranslation } from "react-i18next";
-// import myappcafe_l from "../../assets/ref/myappcafe.svg"
+import { getReferences, ReferenceResponseItem } from "../../utils/queryCms";
 
 const MAX_IMAGE_SIZE = 100;
-
-const references = [
-  {
-    name: "Audi",
-    logo: audi_l,
-    link: "https://www.audi.de/de.html"
-  },
-  {
-    name: "Aumann",
-    logo: aumann_l,
-    link: "https://www.aumann.de/"
-  },
-  {
-    name: "BMW",
-    logo: bmw_l,
-    link: "https://www.bmw.de/de/index.html"
-  },
-  {
-    name: "MyAppCafé",
-    logo: mac,
-    link: "https://my-app-cafe.com/"
-  },
-  {
-    name: "FFT",
-    logo: fft_l,
-    link: "https://www.fft.de/"
-  },
-]
 
 const useStyles = createStyles((theme) => ({
   refImage: {
@@ -72,6 +44,23 @@ export default function References() {
     threshold: 0.2,
     rootMargin: "0px",
   });
+  const [error, setError] = useState<any>(null);
+  const [references, setReferences] = useState<Array<{ id: number, attributes: ReferenceResponseItem }>>([]);
+
+  useEffect(() => {
+    getReferences().then((res) => {
+      setReferences(res.data)
+    }).catch((error) => {
+      console.log(error)
+      setError(error)
+    })
+
+  }, [])
+
+  if (error || !references || references.length === 0) {
+    return null;
+  }
+
 
 
   return (
@@ -79,16 +68,17 @@ export default function References() {
       <Text ta="center" italic color="dimmed" size="sm">{t('ourClients')}</Text>
       <Center>
         <Group spacing={50}>
-          {references.map((c, i) => (
-            <Box w={MAX_IMAGE_SIZE + 50} h={MAX_IMAGE_SIZE + 50} component="a" key={i} href={c.link} style={{ transitionDelay: `${i * 200 + 500}ms` }}
+          {references.map((c, i) => {
+            const url = c.attributes.logo?.data.attributes?.url
+            return (<Box w={MAX_IMAGE_SIZE + 50} h={MAX_IMAGE_SIZE + 50} component="a" key={i} href={c.attributes.link} style={{ transitionDelay: `${i * 200 + 500}ms` }}
               className={cx(classes.reference, { [classes.intersecting]: containerEntry?.isIntersecting })}>
               <Center h="100%">
                 <Stack>
-                  <Image color="darkgray" src={c.logo} alt={'Logo ' + c.name} className={classes.refImage} />
+                  <Image color="darkgray" src={import.meta.env.VITE_CMS + url} alt={c.attributes.logo?.data.attributes?.alternativeText} className={classes.refImage} />
                 </Stack></Center>
 
-            </Box>
-          ))}
+            </Box>)
+          })}
         </Group>
       </Center>
     </Stack>
