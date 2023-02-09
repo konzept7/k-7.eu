@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { createStyles, Header, Group, ActionIcon, Container, Burger, Image, Menu, Text } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
-import { IconBrandFacebook, IconBrandGithub, IconLanguage } from '@tabler/icons';
+import { IconBrandFacebook, IconBrandGithub, IconBrandLinkedin, IconLanguage } from '@tabler/icons';
 import Logo from '../../assets/logo/logo_flat_white_transparent.svg'
 import LogoWithoutText from '../../assets/logo/logo_flat_white_k7_transparent.svg'
 import { Link } from 'react-router-dom';
@@ -172,8 +172,8 @@ export default function HeaderMiddle({ links }: HeaderMiddleProps) {
           <ActionIcon size="lg" component='a' href="https://github.com/konzept7/">
             <IconBrandGithub size={18} stroke={1.5} />
           </ActionIcon>
-          <ActionIcon size="lg">
-            <IconBrandFacebook size={18} stroke={1.5} />
+          <ActionIcon size="lg" component='a' href="https://www.linkedin.com/company/k-7/">
+            <IconBrandLinkedin size={18} stroke={1.5} />
           </ActionIcon>
         </Group>
       </Container>
