@@ -230,7 +230,6 @@ export default function ContactSection() {
 
   const contactData = [
     { title: t('contact.email'), description: 'info@k-7.eu', icon: IconAt },
-    // { title: t('contact.phone'), description: '+49 (190) 123 456', icon: IconPhone },
     {
       title: t('contact.adress'), description: 'Roonstraße 23a, 76137 Karlsruhe', icon: IconMapPin
     },

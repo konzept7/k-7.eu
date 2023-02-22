@@ -11,7 +11,8 @@ const useStyles = createStyles((theme) => ({
     fontSize: '1.3rem'
   },
   text: {
-    fontSize: '1.1rem'
+    fontSize: '1.1rem',
+    paddingTop: 0,
   },
   containerWrap: {
     flexWrap: "nowrap",

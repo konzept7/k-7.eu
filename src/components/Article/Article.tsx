@@ -175,7 +175,7 @@ export default function Article() {
               {' '} {t('by')} {' ' + entry.author?.data.attributes.name}<br />
               {t('article.updatedAt')} {new Date(entry.updatedAt).toLocaleDateString(i18n.language ?? "de", { year: 'numeric', month: 'long', day: 'numeric' })}.
             </Text>
-            <Group position="right">
+            <Group position="right" mt="md">
               {tags?.map((tag, index) => <Badge variant="filled" key={index} color="orange" radius="xs">{tag}</Badge>)}
             </Group>
           </footer>
