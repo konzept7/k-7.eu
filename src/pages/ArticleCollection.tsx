@@ -17,7 +17,7 @@ export default function ArticleCollection({ type }: ArticleCollectionProps) {
 
   useEffect(() => {
     queryArticles(type, ["cover", "author", "departments"], i18n.resolvedLanguage).then((response) => {
-      const p = response.data
+      const p = response.data.sort((a, b) => a.attributes.updatedAt < b.attributes.updatedAt ? 1 : -1)
       setArticles(p)
     }
     ).catch(error => {

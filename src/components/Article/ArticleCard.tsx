@@ -16,6 +16,10 @@ const useStyles = createStyles((theme) => ({
   card: {
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.brand[8] : theme.white,
     cursor: 'pointer',
+    transition: 'background-color 0.2s ease-in-out',
+    '&:hover': {
+      backgroundColor: theme.colorScheme === 'dark' ? theme.colors.brand[7] : theme.colors.gray[0],
+    }
   },
 
   title: {
