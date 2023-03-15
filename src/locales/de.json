@@ -38,6 +38,7 @@
   },
   "aboutUs": "Über uns",
   "imprint": "Impressum",
+  "gdpr": "Datenschutzerklärung",
   "community": "Community",
   "pageNotFound": "Seite nicht gefunden",
   "pageNotFoundDescription": "Diese Seite existiert nicht. Bitte überprüfe die URL oder gehe zurück zur Startseite.",
@@ -76,7 +77,8 @@
     "email": "Email",
     "phone": "Telefon",
     "adress": "Adresse",
-    "hours": "Arbeitszeiten"
+    "hours": "Arbeitszeiten",
+    "gdpr": "Ich akzeptiere die Datenschutzerklärung"
   },
   "header": {
     "changeLanguage": "Sprache festlegen"
