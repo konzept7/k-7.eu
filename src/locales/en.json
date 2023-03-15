@@ -37,7 +37,8 @@
     "whatIsItAbout": "What is it about?",
     "yourEmail": "Your email",
     "yourMessage": "Your message",
-    "yourName": "Your name"
+    "yourName": "Your name",
+    "gdpr": "I accept the privacy policy"
   },
   "copied": "copied",
   "copy": "To the clipboard",
@@ -119,5 +120,6 @@
     "subTitle": "Who we are",
     "text": "We are a team of engineers specializing in special machine construction and the development of software and hardware for industrial plants. \nAs a development company, we not only offer design services, but also develop the associated software.",
     "title": "Not your classic engineering office"
-  }
+  },
+  "gdpr": "Privacy policy"
 }
