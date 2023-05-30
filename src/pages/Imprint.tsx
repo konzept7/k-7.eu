@@ -5,7 +5,7 @@ import K7Page from "../components/Layout/K7Page";
 import ContactSection from "../components/Shared/ContactSection";
 
 const address = ["K7-Konzept Karlsruhe GmbH", "Roonstraße 23a", "76137 Karlsruhe", "GERMANY"]
-const registrar = ["Amtsgericht Mannheim", "HRB 746032", "Geschäftsführung: Jannik Stuart | Norbert Stefan Fischer", "USt-IdNr.: in Gründung", "DUNS Nummer: 344448617"]
+const registrar = ["Amtsgericht Mannheim", "HRB 746032", "Geschäftsführung: Jannik Stuart | Norbert Stefan Fischer", "USt-IdNr.: DE358640588", "DUNS Nummer: 344448617"]
 
 export default function Imprint() {
   const { t } = useTranslation();
