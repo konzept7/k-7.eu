@@ -70,7 +70,7 @@ export default function References() {
         <Group spacing={50}>
           {references.map((c, i) => {
             const url = c.attributes.logo?.data.attributes?.url
-            return (<Box w={MAX_IMAGE_SIZE + 50} h={MAX_IMAGE_SIZE + 50} component="a" key={i} href={c.attributes.link} style={{ transitionDelay: `${i * 200 + 500}ms` }}
+            return (<Box w={MAX_IMAGE_SIZE + 50} h={MAX_IMAGE_SIZE + 50} component="a" key={i} href={c.attributes.link} target="_blank" style={{ transitionDelay: `${i * 200 + 500}ms` }}
               className={cx(classes.reference, { [classes.intersecting]: containerEntry?.isIntersecting })}>
               <Center h="100%">
                 <Stack>
